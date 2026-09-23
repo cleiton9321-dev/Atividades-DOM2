@@ -1,0 +1,453 @@
+/* ============================================
+   RESET & VARIÁVEIS GLOBAIS
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Cores principais */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-card-hover: rgba(255, 255, 255, 0.06);
+  
+  --gold: #ffd700;
+  --gold-light: #ffe97a;
+  --gold-dark: #b8860b;
+  --green: #4ade80;
+  --green-dark: #16a34a;
+  
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 215, 0, 0.4);
+  
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 30px rgba(255, 215, 0, 0.15);
+  --shadow-glow-green: 0 0 30px rgba(74, 222, 128, 0.15);
+  
+  /* Transições */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Raios */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}
+
+/* ============================================
+   BODY & FUNDO ANIMADO
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(255, 215, 0, 0.08), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(74, 222, 128, 0.06), transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(120, 80, 255, 0.04), transparent 60%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 40px 20px 80px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   TÍTULOS
+   ============================================ */
+h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius: 2px;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 50px 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  letter-spacing: -0.01em;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.005em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================
+   SEÇÕES
+   ============================================ */
+section {
+  max-width: 780px;
+  margin: 0 auto 60px;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+  position: relative;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 18px;
+  text-align: left;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+/* Linha lateral dourada */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+  opacity: 0.6;
+  transition: var(--transition);
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.card:hover::before {
+  width: 5px;
+  opacity: 1;
+}
+
+/* Card dos exercícios do aluno */
+.card.aluno {
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.04), rgba(74, 222, 128, 0.01));
+  border-color: rgba(74, 222, 128, 0.15);
+}
+
+.card.aluno::before {
+  background: linear-gradient(180deg, var(--green), var(--green-dark));
+}
+
+.card.aluno:hover {
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: var(--shadow-md), var(--shadow-glow-green);
+}
+
+.card.aluno h3 {
+  color: var(--green);
+}
+
+/* ============================================
+   INPUTS
+   ============================================ */
+input[type="text"] {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  margin-bottom: 12px;
+  transition: var(--transition);
+  outline: none;
+}
+
+input[type="text"]::placeholder {
+  color: var(--text-muted);
+}
+
+input[type="text"]:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+input[type="text"]:focus {
+  border-color: var(--gold);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+}
+
+.card.aluno input[type="text"]:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.1);
+}
+
+/* ============================================
+   BOTÕES
+   ============================================ */
+button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #1a1a1a;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.35);
+}
+
+button:hover::after {
+  transform: translateX(100%);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.card.aluno button {
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  color: #052e16;
+  box-shadow: 0 4px 14px rgba(74, 222, 128, 0.2);
+}
+
+.card.aluno button:hover {
+  box-shadow: 0 6px 20px rgba(74, 222, 128, 0.35);
+}
+
+/* ============================================
+   PARÁGRAFOS DE RESULTADO (filter/find/reduce)
+   ============================================ */
+.card > p {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 2px solid var(--gold);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  animation: slideIn 0.4s ease-out;
+  min-height: 0;
+}
+
+.card > p:empty {
+  display: none;
+}
+
+.card.aluno > p {
+  border-left-color: var(--green);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESULTADOS DE FOREACH (blocos em div)
+   ============================================ */
+div[id^="resultadoFor"],
+div[id^="resultadoFruta"],
+div[id^="resultadoDesconto"],
+div[id^="resultadoSituacao"] {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+div[id^="resultadoFor"] p,
+div[id^="resultadoFruta"] p,
+div[id^="resultadoDesconto"] p,
+div[id^="resultadoSituacao"] p {
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 2px solid var(--gold);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  animation: slideIn 0.35s ease-out backwards;
+}
+
+/* Efeito cascata: cada item aparece com um pequeno atraso */
+div[id^="resultadoFor"] p:nth-child(1),
+div[id^="resultadoFruta"] p:nth-child(1),
+div[id^="resultadoDesconto"] p:nth-child(1),
+div[id^="resultadoSituacao"] p:nth-child(1) { animation-delay: 0.02s; }
+
+div[id^="resultadoFor"] p:nth-child(2),
+div[id^="resultadoFruta"] p:nth-child(2),
+div[id^="resultadoDesconto"] p:nth-child(2),
+div[id^="resultadoSituacao"] p:nth-child(2) { animation-delay: 0.06s; }
+
+div[id^="resultadoFor"] p:nth-child(3),
+div[id^="resultadoFruta"] p:nth-child(3),
+div[id^="resultadoDesconto"] p:nth-child(3),
+div[id^="resultadoSituacao"] p:nth-child(3) { animation-delay: 0.1s; }
+
+div[id^="resultadoFor"] p:nth-child(4),
+div[id^="resultadoFruta"] p:nth-child(4),
+div[id^="resultadoDesconto"] p:nth-child(4),
+div[id^="resultadoSituacao"] p:nth-child(4) { animation-delay: 0.14s; }
+
+div[id^="resultadoFor"] p:nth-child(5),
+div[id^="resultadoFruta"] p:nth-child(5),
+div[id^="resultadoDesconto"] p:nth-child(5),
+div[id^="resultadoSituacao"] p:nth-child(5) { animation-delay: 0.18s; }
+
+/* ============================================
+   SCROLLBAR PERSONALIZADA
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-dark), var(--gold));
+  border-radius: 10px;
+  border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-light);
+}
+
+/* ============================================
+   SELEÇÃO DE TEXTO
+   ============================================ */
+::selection {
+  background: var(--gold);
+  color: #1a1a1a;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 640px) {
+  body {
+    padding: 24px 14px 60px;
+  }
+  
+  h1 {
+    margin-bottom: 36px;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    margin: 36px 0 18px;
+  }
+  
+  .card {
+    padding: 18px;
+  }
+  
+  input[type="text"],
+  button {
+    width: 100%;
+  }
+  
+  button {
+    margin-top: 4px;
+  }
+}
+
+/* ============================================
+   ACESSIBILIDADE — REDUZIR ANIMAÇÕES
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

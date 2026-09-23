@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercícios de Métodos de Array com DOM</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>🧩 Exercícios — Métodos de Array com DOM</h1>
+
+    <!-- ============================================ -->
+    <!-- PARTE 1 — FILTER                             -->
+    <!-- ============================================ -->
+    <section>
+      <h2>🎯 Parte 1 — filter()</h2>
+
+      <!-- Exercício 1 -->
+      <div class="card">
+        <h3>Exercício 1 — Idades maiores de 18</h3>
+        <input
+          id="idades"
+          type="text"
+          placeholder="Digite idades separadas por vírgula"
+        />
+        <button id="btnFilter1">Filtrar</button>
+        <p id="resultado1"></p>
+      </div>
+
+      <!-- Exercício 2 -->
+      <div class="card">
+        <h3>Exercício 2 — Números pares</h3>
+        <input
+          id="numeros"
+          type="text"
+          placeholder="Digite números separados por vírgula"
+        />
+        <button id="btnFilter2">Filtrar</button>
+        <p id="resultado2"></p>
+      </div>
+
+      <!-- Aluno 1 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 1 — Nomes que começam com "A"</h3>
+        <input
+          id="nomesA"
+          type="text"
+          placeholder="Digite nomes separados por vírgula"
+        />
+        <button id="btnA">Filtrar</button>
+        <p id="resultadoA"></p>
+      </div>
+
+      <!-- Aluno 2 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 2 — Notas maiores ou iguais a 7</h3>
+        <input
+          id="notas"
+          type="text"
+          placeholder="Digite notas separadas por vírgula"
+        />
+        <button id="btnNotas">Filtrar</button>
+        <p id="resultadoNotas"></p>
+      </div>
+
+      <!-- Aluno 3 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 3 — Múltiplos de 3</h3>
+        <input
+          id="mult3"
+          type="text"
+          placeholder="Digite números separados por vírgula"
+        />
+        <button id="btnMult3">Filtrar</button>
+        <p id="resultadoMult3"></p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PARTE 2 — FIND                               -->
+    <!-- ============================================ -->
+    <section>
+      <h2>🔍 Parte 2 — find()</h2>
+
+      <!-- Exercício 1 -->
+      <div class="card">
+        <h3>Exercício 1 — Encontrar "maçã"</h3>
+        <input
+          id="frutas"
+          type="text"
+          placeholder="Digite frutas separadas por vírgula"
+        />
+        <button id="btnFind1">Procurar</button>
+        <p id="resultadoFind1"></p>
+      </div>
+
+      <!-- Exercício 2 -->
+      <div class="card">
+        <h3>Exercício 2 — Primeiro nome com mais de 5 letras</h3>
+        <input
+          id="nomesFind"
+          type="text"
+          placeholder="Digite nomes separados por vírgula"
+        />
+        <button id="btnFind2">Procurar</button>
+        <p id="resultadoFind2"></p>
+      </div>
+
+      <!-- Aluno 1 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 1 — Primeiro número negativo</h3>
+        <input
+          id="negativos"
+          type="text"
+          placeholder="Digite números separados por vírgula"
+        />
+        <button id="btnNeg">Procurar</button>
+        <p id="resultadoNeg"></p>
+      </div>
+
+      <!-- Aluno 2 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 2 — Primeiro preço acima de 100</h3>
+        <input
+          id="precosFind"
+          type="text"
+          placeholder="Digite preços separados por vírgula"
+        />
+        <button id="btnPreco">Procurar</button>
+        <p id="resultadoPreco"></p>
+      </div>
+
+      <!-- Aluno 3 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 3 — Primeira palavra com a letra "z"</h3>
+        <input
+          id="palavrasZ"
+          type="text"
+          placeholder="Digite palavras separadas por vírgula"
+        />
+        <button id="btnZ">Procurar</button>
+        <p id="resultadoZ"></p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PARTE 3 — REDUCE                             -->
+    <!-- ============================================ -->
+    <section>
+      <h2>➕ Parte 3 — reduce()</h2>
+
+      <!-- Exercício 1 -->
+      <div class="card">
+        <h3>Exercício 1 — Somar números</h3>
+        <input
+          id="numerosReduce1"
+          type="text"
+          placeholder="Digite números separados por vírgula"
+        />
+        <button id="btnReduce1">Calcular</button>
+        <p id="resultadoReduce1"></p>
+      </div>
+
+      <!-- Exercício 2 -->
+      <div class="card">
+        <h3>Exercício 2 — Total da compra</h3>
+        <input
+          id="precos"
+          type="text"
+          placeholder="Digite preços separados por vírgula"
+        />
+        <button id="btnReduce2">Somar</button>
+        <p id="resultadoReduce2"></p>
+      </div>
+
+      <!-- Aluno 1 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 1 — Média de idades</h3>
+        <input
+          id="idadesReduce"
+          type="text"
+          placeholder="Digite idades separadas por vírgula"
+        />
+        <button id="btnMedia">Calcular</button>
+        <p id="resultadoMedia"></p>
+      </div>
+
+      <!-- Aluno 2 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 2 — Produto (multiplicação) de todos</h3>
+        <input
+          id="produto"
+          type="text"
+          placeholder="Digite números separados por vírgula"
+        />
+        <button id="btnProduto">Calcular</button>
+        <p id="resultadoProduto"></p>
+      </div>
+
+      <!-- Aluno 3 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 3 — Juntar nomes em uma string</h3>
+        <input
+          id="juntarNomes"
+          type="text"
+          placeholder="Digite nomes separados por vírgula"
+        />
+        <button id="btnJuntar">Juntar</button>
+        <p id="resultadoJuntar"></p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PARTE 4 — FOREACH                            -->
+    <!-- ============================================ -->
+    <section>
+      <h2>🔁 Parte 4 — forEach()</h2>
+
+      <!-- Exercício 1 -->
+      <div class="card">
+        <h3>Exercício 1 — Saudação para cada nome</h3>
+        <input
+          id="nomesFor"
+          type="text"
+          placeholder="Digite nomes separados por vírgula"
+        />
+        <button id="btnForEach1">Exibir</button>
+        <div id="resultadoForEach1"></div>
+      </div>
+
+      <!-- Exercício 2 -->
+      <div class="card">
+        <h3>Exercício 2 — Dobro de cada número</h3>
+        <input
+          id="numerosFor"
+          type="text"
+          placeholder="Digite números separados por vírgula"
+        />
+        <button id="btnForEach2">Calcular</button>
+        <div id="resultadoForEach2"></div>
+      </div>
+
+      <!-- Aluno 1 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 1 — "Eu gosto de [fruta]"</h3>
+        <input
+          id="frutasFor"
+          type="text"
+          placeholder="Digite frutas separadas por vírgula"
+        />
+        <button id="btnFruta">Exibir</button>
+        <div id="resultadoFruta"></div>
+      </div>
+
+      <!-- Aluno 2 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 2 — Preço com desconto</h3>
+        <input
+          id="desconto"
+          type="text"
+          placeholder="Digite preços separados por vírgula"
+        />
+        <button id="btnDesconto">Calcular</button>
+        <div id="resultadoDesconto"></div>
+      </div>
+
+      <!-- Aluno 3 -->
+      <div class="card aluno">
+        <h3>✏️ Aluno 3 — Aprovado ou Reprovado</h3>
+        <input
+          id="notasFor"
+          type="text"
+          placeholder="Digite notas separadas por vírgula"
+        />
+        <button id="btnSituacao">Exibir</button>
+        <div id="resultadoSituacao"></div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
